@@ -15,25 +15,23 @@ export const Contact: React.FC = () => {
     setIsSending(true);
     setStatus(null);
 
+    // Código limpo e sem variáveis soltas:
+    const serviceId = import.meta['env' as any]?.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta['env' as any]?.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta['env' as any]?.VITE_EMAILJS_PUBLIC_KEY;
 
-const viteEnv = (import.meta as any).env;
-
-const serviceId = viteEnv.VITE_EMAILJS_SERVICE_ID;
-const templateId = viteEnv.VITE_EMAILJS_TEMPLATE_ID;
-const publicKey = viteEnv.VITE_EMAILJS_PUBLIC_KEY;
-
-   emailjs.sendForm(
-  serviceId as string, 
-  templateId as string, 
-  formRef.current, 
-  publicKey as string
-)
+    emailjs.sendForm(
+      serviceId as string, 
+      templateId as string, 
+      formRef.current, 
+      publicKey as string
+    )
       .then(() => {
         setStatus({
           success: true,
           message: 'Mensagem enviada com sucesso! Entrarei em contato em breve.',
         });
-        formRef.current?.reset(); // Limpa os campos do formulário
+        formRef.current?.reset(); 
       })
       .catch((error) => {
         console.error('EmailJS Error:', error);
@@ -74,13 +72,13 @@ const publicKey = viteEnv.VITE_EMAILJS_PUBLIC_KEY;
           </div>
         </div>
         
-        {/* FORMULÁRIO CONECTADO */}
+
         <form ref={formRef} onSubmit={handleSubmit} className="bg-dark-card border border-dark-border p-6 rounded-xl space-y-4">
           <div>
             <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">Nome</label>
             <input 
               type="text" 
-              name="user_name" // O EmailJS usará essa tag {{user_name}} no template
+              name="user_name" 
               required
               className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-brand-purple text-sm"
               placeholder="Seu nome ou empresa"
@@ -90,7 +88,7 @@ const publicKey = viteEnv.VITE_EMAILJS_PUBLIC_KEY;
             <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">E-mail</label>
             <input 
               type="email" 
-              name="user_email" // O EmailJS usará essa tag {{user_email}} no template
+              name="user_email" 
               required
               className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-brand-purple text-sm"
               placeholder="recrutador@empresa.com"
@@ -99,7 +97,7 @@ const publicKey = viteEnv.VITE_EMAILJS_PUBLIC_KEY;
           <div>
             <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">Mensagem</label>
             <textarea 
-              name="message" // O EmailJS usará essa tag {{message}} no template
+              name="message" 
               rows={4}
               required
               className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-brand-purple text-sm resize-none"
@@ -107,7 +105,6 @@ const publicKey = viteEnv.VITE_EMAILJS_PUBLIC_KEY;
             />
           </div>
           
-          {/* Feedback Visual de Status */}
           {status && (
             <div className={`p-3 rounded-lg text-xs font-medium ${status.success ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}`}>
               {status.message}
