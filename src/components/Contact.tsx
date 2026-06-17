@@ -20,7 +20,12 @@ export const Contact: React.FC = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+   emailjs.sendForm(
+  serviceId as string, 
+  templateId as string, 
+  formRef.current, 
+  publicKey as string
+)
       .then(() => {
         setStatus({
           success: true,
