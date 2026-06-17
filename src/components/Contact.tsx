@@ -15,18 +15,16 @@ export const Contact: React.FC = () => {
     setIsSending(true);
     setStatus(null);
 
-
-    const context: any = import.meta;
-    
-    const serviceId = context.env?.VITE_EMAILJS_SERVICE_ID;
-    const templateId = context.env?.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = context.env?.VITE_EMAILJS_PUBLIC_KEY;
+    // O Vite EXIGE que seja escrito exatamente assim para funcionar no ar:
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     emailjs.sendForm(
-      serviceId as string, 
-      templateId as string, 
+      serviceId, 
+      templateId, 
       formRef.current, 
-      publicKey as string
+      publicKey
     )
       .then(() => {
         setStatus({
