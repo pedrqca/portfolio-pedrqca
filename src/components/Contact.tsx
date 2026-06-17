@@ -15,10 +15,12 @@ export const Contact: React.FC = () => {
     setIsSending(true);
     setStatus(null);
 
-    // Puxa as variáveis de ambiente configuradas no Vite
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+const viteEnv = (import.meta as any).env;
+
+const serviceId = viteEnv.VITE_EMAILJS_SERVICE_ID;
+const templateId = viteEnv.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = viteEnv.VITE_EMAILJS_PUBLIC_KEY;
 
    emailjs.sendForm(
   serviceId as string, 
