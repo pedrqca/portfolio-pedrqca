@@ -15,10 +15,12 @@ export const Contact: React.FC = () => {
     setIsSending(true);
     setStatus(null);
 
-    // Código limpo e sem variáveis soltas:
-    const serviceId = import.meta['env' as any]?.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta['env' as any]?.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta['env' as any]?.VITE_EMAILJS_PUBLIC_KEY;
+
+    const context: any = import.meta;
+    
+    const serviceId = context.env?.VITE_EMAILJS_SERVICE_ID;
+    const templateId = context.env?.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = context.env?.VITE_EMAILJS_PUBLIC_KEY;
 
     emailjs.sendForm(
       serviceId as string, 
