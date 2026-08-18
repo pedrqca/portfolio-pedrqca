@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolioData';
-import { FaGraduationCap, FaRocket, FaExternalLinkAlt } from 'react-icons/fa'; // Adicionado FaExternalLinkAlt
+import { FaGraduationCap, FaRocket, FaExternalLinkAlt } from 'react-icons/fa'; 
 
 export const About: React.FC = () => {
   return (
     <section id="about" className="py-24 px-4 max-w-5xl mx-auto">
-      <div className="flex flex-col md:flex-row gap-12 items-start">
+      <div className="flex flex-col md:flex-row gap-12 md:items-center">
         <div className="w-full md:w-3/5">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
             <span className="text-brand-purple font-mono text-xl">01.</span> Sobre Mim
@@ -14,12 +14,18 @@ export const About: React.FC = () => {
           <p className="text-slate-400 text-base leading-relaxed mb-4">
             {personalInfo.bio}
           </p>
+          <p className="text-slate-400 text-base leading-relaxed mb-4">
+            {personalInfo.formation}
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed mb-4">
+            {personalInfo.activity}
+          </p>
           <p className="text-slate-400 text-base leading-relaxed">
-            Busco oportunidades de estágio onde possa integrar o conhecimento de engenharia de baixo nível à agilidade do ecossistema de desenvolvimento de software moderno, criando soluções eficientes e focadas em desempenho.
+            {personalInfo.lookingFor}
           </p>
         </div>
         
-        <div className="w-full md:w-2/5 grid grid-cols-1 gap-4">
+        <div className="w-full md:w-2/5 grid grid-cols-1 gap-4 md:self-center">
           <div className="bg-dark-card border border-dark-border p-5 rounded-xl">
             <div className="flex items-center gap-3 text-brand-purple mb-2">
               <FaGraduationCap size={20} />
