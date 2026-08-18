@@ -13,27 +13,36 @@ export const personalInfo = {
   title: 'Estudante de Engenharia de Computação | Desenvolvedor de Software',
   location: 'Santa Rita do Sapucaí - MG',
   bio: 'Sou estudante de Engenharia de Computação no Inatel e de Análise e Desenvolvimento de Sistemas na FIAP, com interesse em desenvolvimento de software, sistemas embarcados e na aplicação da tecnologia para resolver problemas reais.',
-  formation: 'Minha formação combina conhecimentos de hardware e software, enquanto meus projetos e experiências práticas me permitem trabalhar com tecnologias como Java, Spring Boot, React, TypeScript, C++, Arduino, PostgreSQL e Docker.',
+  formation: 'Minha formação combina hardware e software, e meus projetos e experiências práticas têm me permitido desenvolver aplicações utilizando Java, Spring Boot, React e TypeScript, além de trabalhar com C++, Arduino, PostgreSQL e Docker.',
+  lookingFor: 'Busco oportunidades de estágio em desenvolvimento de software onde possa evoluir tecnicamente, contribuir com projetos reais e transformar conhecimento em soluções eficientes. Também tenho interesse na interseção entre tecnologia e saúde, especialmente em HealthTech e neurotecnologia.',
   activity: 'Também atuo no Start_Engenharias, onde ministro atividades de programação e sistemas embarcados para estudantes do ensino médio, experiência que fortaleceu minhas habilidades de comunicação, trabalho em equipe e resolução de problemas.',
-  lookingFor: 'Atualmente, busco oportunidades de estágio em desenvolvimento de software, onde possa continuar evoluindo tecnicamente, contribuir com projetos reais e transformar conhecimento em soluções eficientes. Tenho também especial interesse pela interseção entre tecnologia e saúde, especialmente em HealthTech e neurotecnologia.',
   linkedin: 'https://www.linkedin.com/in/pedrqca/',
   github: 'https://github.com/pedrqca',
   email: 'phcosta@gec.inatel.br', 
 };
 
-export const experiences: ExperienceItem[] = [
+export const experiences = [
   {
-    role: 'Bolsista',
-    company: 'Start_Inatel:Telecomunicações',
-    period: '2023 - Atual',
+    period: '2023 — Atual',
+    role: 'Bolsista / Monitor de Programação',
+    company: 'Start_Engenharias — Inatel',
+
     activities: [
-      'Desenvolvimento de exercícios práticos e algoritmos utilizando C++ e ecossistema Arduino.',
-      'Ensino de lógica de programação orientada a resolução de problemas para novos alunos.',
-      'Montagem e validação de circuitos eletrônicos analógicos e digitais em laboratório.',
-      'Facilitador em oficinas educacionais tecnológicas promovidas pela instituição.',
-      'Aprimoramento contínuo de soft skills focadas em comunicação técnica e liderança de equipes.'
-    ]
-  }
+      'Ministração de atividades de programação em C++ e Arduino para estudantes do ensino médio.',
+      'Montagem de circuitos eletrônicos e desenvolvimento de atividades práticas envolvendo sistemas embarcados.',
+      'Preparação de materiais, organização dos alunos em grupos e acompanhamento das atividades.',
+      'Manutenção e verificação dos componentes eletrônicos utilizados durante as atividades.',
+      'Colaboração com outros bolsistas na preparação e execução das aulas e competições.',
+    ],
+
+    technologies: [
+      'C++',
+      'Arduino',
+      'Programação',
+      'Sistemas Embarcados',
+      'Circuitos Eletrônicos',
+    ],
+  },
 ];
 
 export const projects: Project[] = [
@@ -115,15 +124,20 @@ export const skillCategories: {
   },
 ];
 
-export const educationList: EducationItem[] = [
+export const educationList = [
   {
-    institution: 'Inatel',
-    degree: 'Graduação em Engenharia de Computação'
+    institution: 'Instituto Nacional de Telecomunicações — Inatel',
+    degree: 'Engenharia de Computação',
+    period: '2022 — Atual',
   },
   {
     institution: 'FIAP',
-    degree: 'Tecnólogo em Análise e Desenvolvimento de Sistemas'
-  }
+    degree: 'Análise e Desenvolvimento de Sistemas',
+    period: '2025 — Atual',
+  },
 ];
 
-export const languages = ['Português (Nativo)', 'Inglês (Intermediário / Avançado)'];
+export const languages = [
+  'Português — Nativo',
+  'Inglês — Intermediário / Avançado',
+];

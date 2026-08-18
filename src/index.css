@@ -13,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom scrollbar para estética clean */
+
 ::-webkit-scrollbar {
   width: 8px;
 }

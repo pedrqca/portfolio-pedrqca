@@ -1,70 +1,142 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolioData';
-import { FaGraduationCap, FaRocket, FaExternalLinkAlt } from 'react-icons/fa'; 
+import {
+  FaGraduationCap,
+  FaRocket,
+  FaBrain,
+} from 'react-icons/fa';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 px-4 max-w-5xl mx-auto">
-      <div className="flex flex-col md:flex-row gap-12 md:items-center">
-        <div className="w-full md:w-3/5">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
-            <span className="text-brand-purple font-mono text-xl">01.</span> Sobre Mim
-          </h2>
-          <p className="text-slate-400 text-base leading-relaxed mb-4">
-            {personalInfo.bio}
-          </p>
-          <p className="text-slate-400 text-base leading-relaxed mb-4">
-            {personalInfo.formation}
-          </p>
-          <p className="text-slate-400 text-base leading-relaxed mb-4">
-            {personalInfo.activity}
-          </p>
-          <p className="text-slate-400 text-base leading-relaxed">
-            {personalInfo.lookingFor}
-          </p>
-        </div>
-        
-        <div className="w-full md:w-2/5 grid grid-cols-1 gap-4 md:self-center">
-          <div className="bg-dark-card border border-dark-border p-5 rounded-xl">
-            <div className="flex items-center gap-3 text-brand-purple mb-2">
-              <FaGraduationCap size={20} />
-              <h3 className="font-semibold text-white text-sm tracking-wide uppercase">Educação Ativa</h3>
+    <section
+      id="about"
+      className="py-24 px-4"
+    >
+      <div className="max-w-6xl mx-auto">
+
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+
+          {/* Text */}
+          <div className="w-full md:w-3/5">
+
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
+              <span className="text-brand-purple font-mono text-xl">
+                01.
+              </span>
+
+              Sobre Mim
+            </h2>
+
+            <div className="space-y-4 text-slate-400 text-base leading-relaxed">
+              <p>
+                {personalInfo.bio}
+              </p>
+
+              <p>
+                {personalInfo.formation}
+              </p>
+
+              <p>
+                {personalInfo.lookingFor}
+              </p>
             </div>
-            <p className="text-slate-400 text-xs">Engenharia de Computação @ Inatel</p>
-            <p className="text-slate-400 text-xs mt-1">Análise e Des. de Sistemas @ FIAP</p>
+
           </div>
 
-          
-          <div className="bg-dark-card border border-dark-border p-5 rounded-xl relative group">
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-3 text-brand-purple">
-                <FaRocket size={18} />
-                <h3 className="font-semibold text-white text-sm tracking-wide uppercase">Inovação</h3>
+          {/* Quick Info */}
+          <div className="w-full md:w-2/5 grid grid-cols-1 gap-4">
+
+            {/* Education */}
+            <div
+              className="
+                group
+                bg-dark-card
+                border border-dark-border
+                p-5
+                rounded-xl
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-brand-purple/40
+              "
+            >
+              <div className="flex items-center gap-3 text-brand-purple mb-3">
+                <FaGraduationCap size={20} />
+
+                <h3 className="font-semibold text-white text-sm tracking-wide uppercase">
+                  Formação Atual
+                </h3>
               </div>
-              <a 
-                href="https://inatel.br/start-inatel/start-engenharia-telecomunicacoes" 
-                target="_blank" 
-                rel="noreferrer"
-                className="text-slate-500 hover:text-brand-purple transition-colors"
-                title="Ver site oficial do programa"
-              >
-                <FaExternalLinkAlt size={12} />
-              </a>
+
+              <p className="text-slate-400 text-xs">
+                Engenharia de Computação @ Inatel
+              </p>
+
+              <p className="text-slate-400 text-xs mt-1">
+                Análise e Desenvolvimento de Sistemas @ FIAP
+              </p>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed">
-              Bolsista e Monitor de Programação em {' '}
-              <a 
-                href="https://inatel.br/start-inatel/start-engenharia-telecomunicacoes" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-brand-purple hover:text-brand-hover font-semibold underline decoration-brand-purple/30 hover:decoration-brand-purple transition-all"
-              >
-                Start_Inatel
-              </a>.
-            </p>
+
+            {/* Experience */}
+            <div
+              className="
+                group
+                bg-dark-card
+                border border-dark-border
+                p-5
+                rounded-xl
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-brand-purple/40
+              "
+            >
+              <div className="flex items-center gap-3 text-brand-purple mb-3">
+                <FaRocket size={18} />
+
+                <h3 className="font-semibold text-white text-sm tracking-wide uppercase">
+                  Experiência Prática
+                </h3>
+              </div>
+
+              <p className="text-slate-400 text-xs leading-relaxed">
+                Bolsista e Monitor de Programação no{' '}
+                <span className="text-slate-300 font-medium">
+                  Start_Inatel
+                </span>
+                , atuando com programação, Arduino e sistemas embarcados.
+              </p>
+            </div>
+
+            {/* Interests */}
+            <div
+              className="
+                group
+                bg-dark-card
+                border border-dark-border
+                p-5
+                rounded-xl
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-brand-purple/40
+              "
+            >
+              <div className="flex items-center gap-3 text-brand-purple mb-3">
+                <FaBrain size={18} />
+
+                <h3 className="font-semibold text-white text-sm tracking-wide uppercase">
+                  Interesses
+                </h3>
+              </div>
+
+              <p className="text-slate-400 text-xs leading-relaxed">
+                HealthTech, neurotecnologia e aplicações da computação
+                na área da saúde.
+              </p>
+            </div>
+
           </div>
-          
         </div>
       </div>
     </section>
