@@ -131,8 +131,8 @@ export const About: React.FC = () => {
               </div>
 
               <p className="text-slate-400 text-xs leading-relaxed">
-                HealthTech, neurotecnologia e aplicações da computação
-                na área da saúde.
+                Desenvolvimento de software, sistemas embarcados, 
+                engenharia de computação e desenvolvimento de soluções tecnológicas.
               </p>
             </div>
 
