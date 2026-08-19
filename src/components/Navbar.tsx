@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaFileDownload } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navItems = [
   { label: 'Sobre', href: '#about', number: '01.' },
@@ -15,72 +15,144 @@ export const Navbar: React.FC = () => {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-dark-bg/80 backdrop-blur-md border-b border-dark-border z-50">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-5xl z-50">
 
-        {/* Logo */}
-        <a
-          href="#hero"
-          onClick={closeMenu}
-          className="text-lg font-mono font-bold tracking-tight text-white hover:opacity-80 transition-opacity"
-        >
-          <span className="text-brand-purple">&lt;/</span>
-          pedrqca
-          <span className="text-brand-purple">&gt;</span>
-        </a>
+      {/* Navbar Card */}
+      <div
+        className="
+          bg-dark-card/70
+          backdrop-blur-xl
+          border border-dark-border/70
+          rounded-2xl
+          shadow-xl shadow-black/10
+        "
+      >
+        <div className="px-5 md:px-6 h-14 md:h-16 flex items-center justify-between">
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="group flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <span className="text-brand-purple font-mono text-xs">
-                {item.number}
-              </span>
+          {/* Logo */}
+          <a
+            href="#hero"
+            onClick={closeMenu}
+            className="
+              text-lg
+              font-mono
+              font-bold
+              tracking-tight
+              text-white
+              hover:opacity-80
+              transition-opacity
+            "
+          >
+            <span className="text-brand-purple">&lt;/</span>
+            pedrqca
+            <span className="text-brand-purple">&gt;</span>
+          </a>
 
-              <span className="relative">
-                {item.label}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-medium text-slate-300">
 
-                <span className="absolute left-0 -bottom-1 w-0 h-px bg-brand-purple group-hover:w-full transition-all duration-300" />
-              </span>
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-slate-300 hover:text-brand-purple transition-colors"
-          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-        >
-          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md">
-          <div className="flex flex-col px-6 py-4 gap-1">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                onClick={closeMenu}
-                className="flex items-center gap-3 py-3 text-slate-300 hover:text-brand-purple transition-colors"
+                className="
+                  group
+                  flex
+                  items-center
+                  gap-1.5
+                  hover:text-white
+                  transition-colors
+                "
               >
-                <span className="text-brand-purple font-mono text-xs">
+                <span className="text-brand-purple font-mono text-[11px]">
                   {item.number}
                 </span>
 
-                {item.label}
+                <span className="relative">
+                  {item.label}
+
+                  <span
+                    className="
+                      absolute
+                      left-0
+                      -bottom-1
+                      w-0
+                      h-px
+                      bg-brand-purple
+                      group-hover:w-full
+                      transition-all
+                      duration-300
+                    "
+                  />
+                </span>
               </a>
             ))}
+
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="
+              md:hidden
+              text-slate-300
+              hover:text-brand-purple
+              transition-colors
+            "
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          >
+            {menuOpen ? (
+              <FaTimes size={20} />
+            ) : (
+              <FaBars size={20} />
+            )}
+          </button>
+
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {menuOpen && (
+          <div
+            className="
+              md:hidden
+              border-t
+              border-dark-border/70
+              bg-dark-bg/30
+              backdrop-blur-xl
+              rounded-b-2xl
+            "
+          >
+            <div className="flex flex-col px-5 py-3">
+
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                    py-3
+                    text-sm
+                    text-slate-300
+                    hover:text-white
+                    transition-colors
+                  "
+                >
+                  <span className="text-brand-purple font-mono text-xs">
+                    {item.number}
+                  </span>
+
+                  {item.label}
+                </a>
+              ))}
+
+            </div>
+          </div>
+        )}
+
+      </div>
     </nav>
   );
 };
