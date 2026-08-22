@@ -47,11 +47,18 @@ export const experiences = [
 
 export const projects: Project[] = [
   {
+    title: "ToDq List",
+    description: "Aplicativo moderno e responsivo de gerenciamento de tarefas desenvolvido com React e TypeScript. Conta com suporte completo a Dark Mode, sistema de categorias customizáveis, níveis de prioridade, calendário interativo para controle de prazos e persistência de dados via LocalStorage.",
+    technologies: ["React", "TypeScript", "Vite", "CSS3", "LocalStorage"],
+    demoUrl: "https://todq-list.vercel.app/", 
+    isFeatured: true 
+  },
+  {
     title: 'Sistema de Controle e Ranking para Competições Educacionais',
     description: 'Sistema web de alta performance customizado para gerenciar desafios acadêmicos em tempo real. Possui inteligência embarcada para critérios automáticos de desempate por tempo/pontuação e exportação otimizada de relatórios.',
     technologies: ['React', 'JavaScript', 'Vite', 'CSS', 'Local Storage'],
     demoUrl: 'https://modulo-start-painel.vercel.app/',
-    isFeatured: true
+    isFeatured: false
   },
   {
     title: 'Game Hub Desktop',
