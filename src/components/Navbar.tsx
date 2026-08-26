@@ -37,8 +37,10 @@ const navItems = [
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
+    // Detecta o scroll para trocar entre as duas navbars
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
     };
@@ -51,12 +53,33 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Detecta quando o footer entra na viewport
+    const footer = document.querySelector('footer');
+
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFooterVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.05,
+      }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       {/* =====================================================
           NAVBAR GRANDE
-          Aparece no topo antes do scroll
-      ====================================================== */}
+          ===================================================== */}
 
       <nav
         className={`
@@ -113,7 +136,7 @@ export const Navbar: React.FC = () => {
             h-16
           "
         >
-          {/* Logo grande */}
+          {/* Logo */}
 
           <a
             href="#hero"
@@ -123,14 +146,11 @@ export const Navbar: React.FC = () => {
               font-mono
               font-bold
               tracking-tight
-
               hover:opacity-80
               transition-opacity
             "
           >
-            <span className="text-brand-purple">
-              &lt;
-            </span>
+            <span className="text-brand-purple">&lt;</span>
 
             <span className="text-white">
               pedrqca
@@ -176,9 +196,7 @@ export const Navbar: React.FC = () => {
                     size={14}
                     className="
                       text-slate-400
-
                       group-hover:text-brand-purple
-
                       transition-colors
                     "
                   />
@@ -213,14 +231,11 @@ export const Navbar: React.FC = () => {
 
       {/* =====================================================
           NAVBAR PEQUENA / "ILHA"
-          Aparece depois do scroll
-          Também é a única navbar no mobile
-      ====================================================== */}
+          ===================================================== */}
 
       <nav
         className={`
           fixed
-
           bottom-5
           left-1/2
           -translate-x-1/2
@@ -232,7 +247,7 @@ export const Navbar: React.FC = () => {
           ease-[cubic-bezier(0.22,1,0.36,1)]
 
           ${
-            scrolled
+            scrolled && !footerVisible
               ? `
                 translate-y-0
                 opacity-100
@@ -268,9 +283,7 @@ export const Navbar: React.FC = () => {
             shadow-black/30
           "
         >
-          {/* =================================================
-              LOGO PEQUENA
-          ================================================== */}
+          {/* Logo da ilha */}
 
           <a
             href="#hero"
@@ -304,9 +317,7 @@ export const Navbar: React.FC = () => {
             />
           </a>
 
-          {/* =================================================
-              ÍCONES
-          ================================================== */}
+          {/* Ícones */}
 
           {navItems.map((item) => {
             const Icon = item.icon;
