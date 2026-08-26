@@ -53,6 +53,10 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* =====================================================
+          NAVBAR GRANDE
+          Aparece no topo antes do scroll
+      ====================================================== */}
 
       <nav
         className={`
@@ -109,7 +113,7 @@ export const Navbar: React.FC = () => {
             h-16
           "
         >
-          {/* Logo */}
+          {/* Logo grande */}
 
           <a
             href="#hero"
@@ -119,13 +123,22 @@ export const Navbar: React.FC = () => {
               font-mono
               font-bold
               tracking-tight
+
               hover:opacity-80
               transition-opacity
             "
           >
-            <span className="text-brand-purple">&lt;</span>
-            <span className="text-white">P</span>
-            <span className="text-brand-purple">/&gt;</span>
+            <span className="text-brand-purple">
+              &lt;
+            </span>
+
+            <span className="text-white">
+              pedrqca
+            </span>
+
+            <span className="text-brand-purple">
+              /&gt;
+            </span>
           </a>
 
           {/* Navegação */}
@@ -163,7 +176,9 @@ export const Navbar: React.FC = () => {
                     size={14}
                     className="
                       text-slate-400
+
                       group-hover:text-brand-purple
+
                       transition-colors
                     "
                   />
@@ -196,9 +211,16 @@ export const Navbar: React.FC = () => {
         </div>
       </nav>
 
+      {/* =====================================================
+          NAVBAR PEQUENA / "ILHA"
+          Aparece depois do scroll
+          Também é a única navbar no mobile
+      ====================================================== */}
+
       <nav
         className={`
           fixed
+
           bottom-5
           left-1/2
           -translate-x-1/2
@@ -246,7 +268,9 @@ export const Navbar: React.FC = () => {
             shadow-black/30
           "
         >
-          {/* Logo */}
+          {/* =================================================
+              LOGO PEQUENA
+          ================================================== */}
 
           <a
             href="#hero"
@@ -269,14 +293,20 @@ export const Navbar: React.FC = () => {
               duration-300
             "
           >
-            <span className="font-mono font-bold text-sm">
-              <span className="text-brand-purple">&lt;</span>
-              <span className="text-white">P</span>
-              <span className="text-brand-purple">/&gt;</span>
-            </span>
+            <img
+              src="/logo-navbar.svg"
+              alt="Pedro"
+              className="
+                w-7
+                h-7
+                object-contain
+              "
+            />
           </a>
 
-          {/* Ícones */}
+          {/* =================================================
+              ÍCONES
+          ================================================== */}
 
           {navItems.map((item) => {
             const Icon = item.icon;
