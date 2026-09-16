@@ -153,7 +153,7 @@ export const Hero: React.FC = () => {
 
           {/* Currículo */}
           <a
-            href="/curriculo.pdf"
+            href="/Curriculo - Pedro Henrique Costa - Dev .pdf"
             download
             className="
               flex items-center gap-2
@@ -198,11 +198,11 @@ export const Hero: React.FC = () => {
 
 
         <motion.a
-  href="#projects"
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.7 }}
-  className="
+          href="#projects"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="
     inline-flex
     items-center
     gap-3
@@ -226,19 +226,19 @@ export const Hero: React.FC = () => {
     duration-300
     group
   "
->
-  <span>Ver meus projetos</span>
+        >
+          <span>Ver meus projetos</span>
 
-  <FaArrowDown
-    size={11}
-    className="
+          <FaArrowDown
+            size={11}
+            className="
       text-brand-purple
       group-hover:translate-y-1
       transition-transform
       duration-300
     "
-  />
-</motion.a>
+          />
+        </motion.a>
       </div>
     </section>
   );
