@@ -18,7 +18,7 @@ export const personalInfo = {
   activity: 'Também atuo no Start_Engenharias, onde ministro atividades de programação e sistemas embarcados para estudantes do ensino médio, experiência que fortaleceu minhas habilidades de comunicação, trabalho em equipe e resolução de problemas.',
   linkedin: 'https://www.linkedin.com/in/pedrqca/',
   github: 'https://github.com/pedrqca',
-  email: 'phcosta@gec.inatel.br', 
+  email: 'phcosta@gec.inatel.br',
 };
 
 export const experiences = [
@@ -47,11 +47,19 @@ export const experiences = [
 
 export const projects: Project[] = [
   {
+    title: "CLOTHESTORE",
+    description: "Plataforma de e-commerce streetwear full-stack desenvolvida com React e TypeScript. Possui arquitetura client-server com API REST em Fastify, persistência de dados em PostgreSQL utilizando Prisma ORM, integração entre frontend e backend e deploy em ambiente de produção.",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Fastify", "Prisma", "PostgreSQL"],
+    demoUrl: "https://clothestore-phi.vercel.app/",
+    githubUrl: "https://github.com/pedrqca/CLOTHESTORE",
+    isFeatured: true
+  },
+  {
     title: "ToDq List",
     description: "Aplicativo moderno e responsivo de gerenciamento de tarefas desenvolvido com React e TypeScript. Conta com suporte completo a Dark Mode, sistema de categorias customizáveis, níveis de prioridade, calendário interativo para controle de prazos e persistência de dados via LocalStorage.",
     technologies: ["React", "TypeScript", "Vite", "CSS3", "LocalStorage"],
-    demoUrl: "https://todq-list.vercel.app/", 
-    isFeatured: true 
+    demoUrl: "https://todq-list.vercel.app/",
+    isFeatured: true
   },
   {
     title: 'Sistema de Controle e Ranking para Competições Educacionais',
@@ -74,62 +82,62 @@ export const skillCategories: {
   skills: string[];
   icon: IconType;
 }[] = [
-  {
-    category: 'Frontend',
-    icon: FaCode,
-    skills: [
-      'React',
-      'TypeScript',
-      'JavaScript',
-      'HTML5',
-      'CSS3',
-      'Tailwind CSS',
-    ],
-  },
+    {
+      category: 'Frontend',
+      icon: FaCode,
+      skills: [
+        'React',
+        'TypeScript',
+        'JavaScript',
+        'HTML5',
+        'CSS3',
+        'Tailwind CSS',
+      ],
+    },
 
-  {
-    category: 'Backend',
-    icon: FaServer,
-    skills: [
-      'Java',
-      'Spring Boot',
-      'Python',
-      'REST APIs',
-    ],
-  },
+    {
+      category: 'Backend',
+      icon: FaServer,
+      skills: [
+        'Java',
+        'Spring Boot',
+        'Python',
+        'REST APIs',
+      ],
+    },
 
-  {
-    category: 'Banco de Dados',
-    icon: FaDatabase,
-    skills: [
-      'PostgreSQL',
-      'SQL',
-    ],
-  },
+    {
+      category: 'Banco de Dados',
+      icon: FaDatabase,
+      skills: [
+        'PostgreSQL',
+        'SQL',
+      ],
+    },
 
-  {
-    category: 'DevOps & Ferramentas',
-    icon: FaTools,
-    skills: [
-      'Git',
-      'GitHub',
-      'Docker',
-      'Maven',
-      'Vite',
-    ],
-  },
+    {
+      category: 'DevOps & Ferramentas',
+      icon: FaTools,
+      skills: [
+        'Git',
+        'GitHub',
+        'Docker',
+        'Maven',
+        'Vite',
+      ],
+    },
 
-  {
-    category: 'Sistemas Embarcados',
-    icon: FaMicrochip,
-    skills: [
-      'Arduino',
-      'C++',
-      'Circuitos Eletrônicos',
-      'Sistemas Embarcados',
-    ],
-  },
-];
+    {
+      category: 'Sistemas Embarcados',
+      icon: FaMicrochip,
+      skills: [
+        'Arduino',
+        'C++',
+        'Circuitos Eletrônicos',
+        'Sistemas Embarcados',
+      ],
+    },
+  ];
 
 export const educationList = [
   {

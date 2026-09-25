@@ -32,13 +32,18 @@ export const Projects: React.FC = () => {
               duration: 0.4,
               delay: index * 0.1,
             }}
+            onClick={() => {
+              if (project.demoUrl) {
+                window.open(project.demoUrl, '_blank', 'noopener,noreferrer');
+              }
+            }}
             className={`
               group p-6 rounded-xl border flex flex-col
               justify-between transition-all duration-300
               hover:-translate-y-1
-              ${
-                project.isFeatured
-                  ? `
+              ${project.demoUrl ? 'cursor-pointer' : 'cursor-default'}
+              ${project.isFeatured
+                ? `
                     md:col-span-2
                     bg-gradient-to-br
                     from-dark-card
@@ -48,7 +53,7 @@ export const Projects: React.FC = () => {
                     shadow-brand-purple/5
                     hover:border-brand-purple/70
                   `
-                  : `
+                : `
                     bg-dark-card
                     border-dark-border
                     hover:border-brand-purple/30
@@ -68,7 +73,10 @@ export const Projects: React.FC = () => {
                   size={24}
                 />
 
-                <div className="flex items-center gap-3 text-slate-400">
+                <div
+                  className="flex items-center gap-3 text-slate-400"
+                  onClick={(event) => event.stopPropagation()}
+                >
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
