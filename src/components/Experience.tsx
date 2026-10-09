@@ -25,7 +25,7 @@ export const Experience: React.FC = () => {
 
           {experiences.map((exp, index) => (
             <motion.article
-              key={index}
+              key={`${exp.company}-${exp.role}`}
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -76,9 +76,9 @@ export const Experience: React.FC = () => {
 
               {/* Activities */}
               <ul className="mt-5 space-y-3 text-slate-400 text-sm leading-relaxed">
-                {exp.activities.map((act, idx) => (
+                {exp.activities.map((act) => (
                   <li
-                    key={idx}
+                    key={act}
                     className="flex items-start gap-3"
                   >
                     <span className="text-brand-purple mt-2 block min-w-[5px] h-[5px] rounded-full bg-brand-purple" />
@@ -102,9 +102,9 @@ export const Experience: React.FC = () => {
               {/* Technologies */}
               {exp.technologies && (
                 <div className="flex flex-wrap gap-2 mt-5">
-                  {exp.technologies.map((tech, idx) => (
+                  {exp.technologies.map((tech) => (
                     <span
-                      key={idx}
+                      key={tech}
                       className="
                         bg-dark-card
                         border border-dark-border

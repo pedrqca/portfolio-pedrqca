@@ -24,7 +24,7 @@ export const Education: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {educationList.map((edu, index) => (
             <motion.article
-              key={index}
+              key={edu.institution}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

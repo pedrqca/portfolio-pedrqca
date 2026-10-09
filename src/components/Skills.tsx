@@ -25,7 +25,7 @@ export const Skills: React.FC = () => {
 
             return (
               <div
-                key={index}
+                key={cat.category}
                 className="
                   group
                   bg-dark-card
@@ -70,9 +70,9 @@ export const Skills: React.FC = () => {
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill, idx) => (
+                  {cat.skills.map((skill) => (
                     <span
-                      key={idx}
+                      key={skill}
                       className="
                         bg-dark-bg
                         text-slate-300
@@ -110,11 +110,11 @@ export const Skills: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              {languages.map((lang, idx) => {
+              {languages.map((lang) => {
                 const [language, level] = lang.split(' — ');
 
                 return (
-                  <div key={idx} className="flex flex-col">
+                  <div key={lang} className="flex flex-col">
                     <span className="text-sm text-slate-200">
                       {language}
                     </span>

@@ -82,6 +82,7 @@ export const Navbar: React.FC = () => {
           ===================================================== */}
 
       <nav
+        aria-label="Navegação principal"
         className={`
           hidden md:block
 
@@ -234,6 +235,7 @@ export const Navbar: React.FC = () => {
           ===================================================== */}
 
       <nav
+        aria-label="Navegação mobile"
         className={`
           fixed
           bottom-5

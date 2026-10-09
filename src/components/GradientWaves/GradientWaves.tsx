@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import './GradientWaves.css';
 
@@ -392,26 +392,61 @@ const GradientWaves = ({
   const enableMouseRef =
     useRef(mouseInteraction);
 
+  const [prefersReducedMotion, setPrefersReducedMotion] =
+    useState(() =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+
+  useEffect(() => {
+    const mediaQuery =
+      window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const handlePreferenceChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handlePreferenceChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handlePreferenceChange);
+    };
+  }, []);
+
   useEffect(() => {
 
     const container =
       containerRef.current;
 
-    if (!container) return;
+    if (!container || prefersReducedMotion) return;
 
-    const renderer =
-      new Renderer({
-        webgl: 2,
-        alpha: true,
-        premultipliedAlpha: true,
-        antialias: false,
-        dpr: Math.min(
-          window.devicePixelRatio || 1,
-          2
-        ),
-      });
+    let renderer: Renderer;
+
+    try {
+      renderer =
+        new Renderer({
+          webgl: 2,
+          alpha: true,
+          premultipliedAlpha: true,
+          antialias: false,
+          dpr: Math.min(
+            window.devicePixelRatio || 1,
+            2
+          ),
+        });
+    } catch (error) {
+      console.error('GradientWaves WebGL initialization failed.', error);
+      return;
+    }
 
     const gl = renderer.gl;
+
+    if (!gl || !gl.canvas) {
+      console.error('GradientWaves WebGL context is unavailable.');
+      gl?.getExtension('WEBGL_lose_context')?.loseContext();
+      return;
+    }
 
     gl.clearColor(
       0,
@@ -429,11 +464,16 @@ const GradientWaves = ({
 
     container.appendChild(canvas);
 
-    const geometry =
-      new Triangle(gl);
+    let geometry: Triangle;
+    let program: Program;
+    let mesh: Mesh;
 
-    const program =
-      new Program(gl, {
+    try {
+      geometry =
+        new Triangle(gl);
+
+      program =
+        new Program(gl, {
 
         vertex,
         fragment,
@@ -555,13 +595,19 @@ const GradientWaves = ({
               ]),
           },
         },
-      });
+        });
 
-    const mesh =
-      new Mesh(gl, {
-        geometry,
-        program,
-      });
+      mesh =
+        new Mesh(gl, {
+          geometry,
+          program,
+        });
+    } catch (error) {
+      console.error('GradientWaves WebGL resource initialization failed.', error);
+      container.removeChild(canvas);
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      return;
+    }
 
     ctxMap.set(
       container,
@@ -740,6 +786,17 @@ const GradientWaves = ({
       }
     };
 
+    const onContextLost = (event: Event) => {
+      event.preventDefault();
+      tryStop();
+      canvas.style.display = 'none';
+    };
+
+    canvas.addEventListener(
+      'webglcontextlost',
+      onContextLost
+    );
+
     const intersectionObserver =
       new IntersectionObserver(
         ([entry]) => {
@@ -803,6 +860,11 @@ const GradientWaves = ({
       canvas.removeEventListener(
         'pointerleave',
         onPointerLeave
+      );
+
+      canvas.removeEventListener(
+        'webglcontextlost',
+        onContextLost
       );
 
       ctxMap.delete(

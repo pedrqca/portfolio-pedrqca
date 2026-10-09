@@ -1,5 +1,9 @@
-import { Project, ExperienceItem, SkillCategory, EducationItem } from '../types';
-import { IconType } from 'react-icons';
+import type {
+  EducationItem,
+  ExperienceItem,
+  Project,
+  SkillCategory,
+} from '../types';
 import {
   FaCode,
   FaServer,
@@ -21,7 +25,7 @@ export const personalInfo = {
   email: 'phcosta@gec.inatel.br',
 };
 
-export const experiences = [
+export const experiences: ExperienceItem[] = [
   {
     period: '2023 — Atual',
     role: 'Bolsista / Monitor de Programação',
@@ -46,6 +50,14 @@ export const experiences = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: "Aura Fotografia",
+    description: "Site institucional para uma marca de fotografia, desenvolvido com React e JavaScript. Possui portfólio organizado por categorias, galerias com visualização ampliada de imagens, apresentação de serviços fotográficos, design responsivo e integração com WhatsApp para contato com clientes.",
+    technologies: ["React", "JavaScript", "Vite", "Tailwind CSS", "React Router", "Lucide React"],
+    demoUrl: "https://aura-photography.vercel.app/",
+    githubUrl: "",
+    isFeatured: true
+  },
   {
     title: "CLOTHESTORE",
     description: "Plataforma de e-commerce streetwear full-stack desenvolvida com React e TypeScript. Possui arquitetura client-server com API REST em Fastify, persistência de dados em PostgreSQL utilizando Prisma ORM, integração entre frontend e backend e deploy em ambiente de produção.",
@@ -77,11 +89,7 @@ export const projects: Project[] = [
   }
 ];
 
-export const skillCategories: {
-  category: string;
-  skills: string[];
-  icon: IconType;
-}[] = [
+export const skillCategories: SkillCategory[] = [
     {
       category: 'Frontend',
       icon: FaCode,
@@ -139,7 +147,7 @@ export const skillCategories: {
     },
   ];
 
-export const educationList = [
+export const educationList: EducationItem[] = [
   {
     institution: 'Instituto Nacional de Telecomunicações — Inatel',
     degree: 'Engenharia de Computação',

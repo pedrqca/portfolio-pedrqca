@@ -24,7 +24,7 @@ export const Projects: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <motion.article
-            key={index}
+            key={project.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -32,16 +32,10 @@ export const Projects: React.FC = () => {
               duration: 0.4,
               delay: index * 0.1,
             }}
-            onClick={() => {
-              if (project.demoUrl) {
-                window.open(project.demoUrl, '_blank', 'noopener,noreferrer');
-              }
-            }}
             className={`
               group p-6 rounded-xl border flex flex-col
               justify-between transition-all duration-300
               hover:-translate-y-1
-              ${project.demoUrl ? 'cursor-pointer' : 'cursor-default'}
               ${project.isFeatured
                 ? `
                     md:col-span-2
@@ -73,16 +67,13 @@ export const Projects: React.FC = () => {
                   size={24}
                 />
 
-                <div
-                  className="flex items-center gap-3 text-slate-400"
-                  onClick={(event) => event.stopPropagation()}
-                >
+                <div className="flex items-center gap-3 text-slate-400">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:text-brand-purple transition-colors"
+                      className="hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-dark-card transition-colors"
                       title="Código fonte"
                       aria-label={`Código fonte de ${project.title}`}
                     >
@@ -95,7 +86,7 @@ export const Projects: React.FC = () => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:text-brand-purple transition-colors"
+                      className="hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2 focus-visible:ring-offset-dark-card transition-colors"
                       title="Ver projeto"
                       aria-label={`Ver ${project.title}`}
                     >
@@ -125,9 +116,9 @@ export const Projects: React.FC = () => {
 
             {/* Technologies */}
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, idx) => (
+              {project.technologies.map((tech) => (
                 <span
-                  key={idx}
+                  key={tech}
                   className="
                     bg-dark-bg
                     border border-dark-border
