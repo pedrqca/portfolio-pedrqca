@@ -11,6 +11,10 @@ import {
   FaTools,
   FaMicrochip,
 } from 'react-icons/fa';
+import auraFotografiaImage from '../images/projects/aura-fotografia.png';
+import clothestoreImage from '../images/projects/clothestore.png';
+import todqListImage from '../images/projects/todq-list.png';
+import competicoesImage from '../images/projects/competicoes.png';
 
 export const personalInfo = {
   name: 'Pedro Henrique Oliveira Costa',
@@ -51,42 +55,73 @@ export const experiences: ExperienceItem[] = [
 
 export const projects: Project[] = [
   {
-    title: "Aura Fotografia",
+    title: "Aura Photography",
     description: "Site institucional para uma marca de fotografia, desenvolvido com React e JavaScript. Possui portfólio organizado por categorias, galerias com visualização ampliada de imagens, apresentação de serviços fotográficos, design responsivo e integração com WhatsApp para contato com clientes.",
-    technologies: ["React", "JavaScript", "Vite", "Tailwind CSS", "React Router", "Lucide React"],
+    technologies: [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Lucide React",
+    ],
+    image: auraFotografiaImage,
     demoUrl: "https://aura-photography.vercel.app/",
     githubUrl: "",
-    isFeatured: true
+    isFeatured: true,
   },
   {
     title: "CLOTHESTORE",
     description: "Plataforma de e-commerce streetwear full-stack desenvolvida com React e TypeScript. Possui arquitetura client-server com API REST em Fastify, persistência de dados em PostgreSQL utilizando Prisma ORM, integração entre frontend e backend e deploy em ambiente de produção.",
-    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Fastify", "Prisma", "PostgreSQL"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Fastify",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    image: clothestoreImage,
     demoUrl: "https://clothestore-phi.vercel.app/",
     githubUrl: "https://github.com/pedrqca/CLOTHESTORE",
-    isFeatured: true
+    isFeatured: false,
   },
   {
     title: "ToDq List",
     description: "Aplicativo moderno e responsivo de gerenciamento de tarefas desenvolvido com React e TypeScript. Conta com suporte completo a Dark Mode, sistema de categorias customizáveis, níveis de prioridade, calendário interativo para controle de prazos e persistência de dados via LocalStorage.",
-    technologies: ["React", "TypeScript", "Vite", "CSS3", "LocalStorage"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "CSS3",
+      "LocalStorage",
+    ],
+    image: todqListImage,
     demoUrl: "https://todq-list.vercel.app/",
-    isFeatured: true
+    isFeatured: false,
   },
   {
-    title: 'Sistema de Controle e Ranking para Competições Educacionais',
-    description: 'Sistema web de alta performance customizado para gerenciar desafios acadêmicos em tempo real. Possui inteligência embarcada para critérios automáticos de desempate por tempo/pontuação e exportação otimizada de relatórios.',
-    technologies: ['React', 'JavaScript', 'Vite', 'CSS', 'Local Storage'],
-    demoUrl: 'https://modulo-start-painel.vercel.app/',
-    isFeatured: false
+    title: "Sistema de Controle e Ranking para Competições Educacionais",
+    description: "Sistema web de alta performance customizado para gerenciar desafios acadêmicos em tempo real. Possui inteligência embarcada para critérios automáticos de desempate por tempo/pontuação e exportação otimizada de relatórios.",
+    technologies: [
+      "React",
+      "JavaScript",
+      "Vite",
+      "CSS",
+      "Local Storage",
+    ],
+    image: competicoesImage,
+    demoUrl: "https://modulo-start-painel.vercel.app/",
+    isFeatured: false,
   },
   {
-    title: 'Game Hub Desktop',
-    description: 'Plataforma integrada de jogos de estratégia clássicos desenvolvida sob rigorosos padrões de arquitetura e Engenharia de Software. Implementa jogos como Batalha Naval e Campo Minado.',
-    technologies: ['Java', 'JavaFX', 'Maven'],
-    githubUrl: 'https://github.com/C14-INATEL/Grupo-2-Desenvolvimento-completo',
-    isFeatured: false
-  }
+    title: "Game Hub Desktop",
+    description: "Plataforma integrada de jogos de estratégia clássicos desenvolvida sob rigorosos padrões de arquitetura e Engenharia de Software. Implementa jogos como Batalha Naval e Campo Minado.",
+    technologies: ["Java", "JavaFX", "Maven"],
+    githubUrl: "https://github.com/C14-INATEL/Grupo-2-Desenvolvimento-completo",
+    isFeatured: false,
+  },
 ];
 
 export const skillCategories: SkillCategory[] = [

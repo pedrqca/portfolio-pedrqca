@@ -7,6 +7,7 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   isFeatured?: boolean;
+  image?: string;
 }
 
 export interface ExperienceItem {
